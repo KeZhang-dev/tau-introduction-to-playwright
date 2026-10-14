@@ -11,12 +11,32 @@ test('get started link', async ({ page }) => {
   await expect(page).toHaveURL(/.*intro/);
 });
 
+// test('check Java page', async ({ page }) => {
+//   await page.goto('https://playwright.dev/');
+//   await page.getByRole('link', { name: 'Get started' }).click();
+//   await page.getByRole('button', { name: 'Node.js' }).hover();
+//   await page.getByText('Java', { exact: true }).click();
+//   // await page.getByRole('navigation', { name: 'Main' }).getByText('Java').click(); // in case the locator above doesn't work, you can use this line. Remove the line above and use this one instead.
+//   await expect(page).toHaveURL('https://playwright.dev/java/docs/intro');
+//   await expect(page.getByText('Installing Playwright', { exact: true })).not.toBeVisible();
+//   const javaDescription = `Playwright is distributed as a set of Maven modules. The easiest way to use it is to add one dependency to your project's pom.xml as described below. If you're not familiar with Maven please refer to its documentation.`;
+//   await expect(page.getByText(javaDescription)).toBeVisible();
+// });
+
+
+/**
+ * 1, Open the page
+ * 2, Click at Get started link
+ * 3, Click at Java link
+ * 4, Check the URL is correct
+ * 5, Check the Installing Playwright text is not visible
+ * 6, Check the description text is visible
+ */
 test('check Java page', async ({ page }) => {
   await page.goto('https://playwright.dev/');
   await page.getByRole('link', { name: 'Get started' }).click();
   await page.getByRole('button', { name: 'Node.js' }).hover();
   await page.getByText('Java', { exact: true }).click();
-  // await page.getByRole('navigation', { name: 'Main' }).getByText('Java').click(); // in case the locator above doesn't work, you can use this line. Remove the line above and use this one instead.
   await expect(page).toHaveURL('https://playwright.dev/java/docs/intro');
   await expect(page.getByText('Installing Playwright', { exact: true })).not.toBeVisible();
   const javaDescription = `Playwright is distributed as a set of Maven modules. The easiest way to use it is to add one dependency to your project's pom.xml as described below. If you're not familiar with Maven please refer to its documentation.`;
