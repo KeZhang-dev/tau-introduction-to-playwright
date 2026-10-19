@@ -10,15 +10,15 @@ const password = process.env.PASSWORD;
 
 test.beforeAll(async ({ playwright }) => {
     test.skip(
-      !!process.env.PROD,
-      'Test intentionally skipped in production due to data dependency.'
+        !!process.env.PROD,
+        'Test intentionally skipped in production due to data dependency.'
     );
     // start a server
     // create a db connection
     // reuse a sign in state
 });
-  
-test.beforeEach(async ({ page }, testInfo) => {
+
+test.beforeEach(async ({ }, testInfo) => {
     console.log(`Running ${testInfo.title}`);
     // open a URL
     // clean up the DB
@@ -27,12 +27,12 @@ test.beforeEach(async ({ page }, testInfo) => {
     // load params
 });
 
-test.afterAll(async ({ page }, testInfo) => {
+test.afterAll(async ({ }, testInfo) => {
     console.log('Test file completed.');
     // close a DB connection
 });
 
-test.afterEach( async ({ page }, testInfo) => {
+test.afterEach(async ({ page }, testInfo) => {
     console.log(`Finished ${testInfo.title} with status ${testInfo.status}`);
 
     if (testInfo.status !== testInfo.expectedStatus)
@@ -54,26 +54,25 @@ test.describe.skip('Test Case', () => {
 
         // ...
     });
-  
+
     test('Test Scenario Two', async ({ page }) => {
         // Arrange
         // Act
         // Assert
     });
-/**
-    test.only('Test Scenario Three', async ({ page }) => {
-        // Arrange
-        // Act
-        // Assert
-    });
- */  
-/**
-    test.skip('Test Scenario Four', async ({ page }) => {
-        // Arrange
-        // Act
-        // Assert
-    });
- */
+    /**
+        test.only('Test Scenario Three', async ({ page }) => {
+            // Arrange
+            // Act
+            // Assert
+        });
+     */
+    /**
+        test.skip('Test Scenario Four', async ({ page }) => {
+            // Arrange
+            // Act
+            // Assert
+        });
+     */
 
-  });
-  
+});
